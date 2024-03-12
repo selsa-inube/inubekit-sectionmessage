@@ -2,19 +2,18 @@ import { inube } from "@inubekit/foundations";
 
 const appearances = [
   "primary",
-  "error",
+  "danger",
   "warning",
   "success",
-  "information",
   "help",
   "light",
   "gray",
   "dark",
 ] as const;
 
-export type Appearance = (typeof appearances)[number];
+type Appearance = (typeof appearances)[number];
 
-export const parameters = {
+const parameters = {
   docs: {
     description: {
       component:
@@ -23,7 +22,7 @@ export const parameters = {
   },
 };
 
-export const props = {
+const props = {
   icon: {
     control: { type: "element" },
     description: "The icon to be displayed in the section message.",
@@ -57,3 +56,6 @@ export const props = {
       "Callback function that is called when the section message needs to be closed, either by user action or after the countdown.",
   },
 };
+
+export { parameters, props };
+export type { Appearance };

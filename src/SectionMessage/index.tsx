@@ -11,17 +11,18 @@ import { Icon } from "@inubekit/icon";
 import { Appearance } from "./props";
 import { StyledSectionMessage } from "./styles";
 
-export interface ISectionMessageProps {
+interface ISectionMessageProps {
   icon: JSX.Element;
   title: string;
   description: string;
   appearance: Appearance;
   duration: number;
-  closeSectionMessage: () => void;
+  closeSectionMessage?: (e: React.AnimationEvent<HTMLDivElement>) => void;
+  onClick?: (e: React.MouseEvent) => void;
   isMessageResponsive: boolean;
 }
 
-export const SectionMessage = (props: ISectionMessageProps) => {
+const SectionMessage = (props: ISectionMessageProps) => {
   const {
     icon,
     title,
@@ -29,12 +30,39 @@ export const SectionMessage = (props: ISectionMessageProps) => {
     appearance = "primary",
     duration,
     closeSectionMessage,
+    onClick,
   } = props;
 
   const [isPaused, setIsPaused] = useState(false);
   const isMessageResponsive = useMediaQuery("(max-width: 565px)");
 
   const newDescription = description.substring(0, 240);
+
+  const interceptioncloseSectionMessage = (
+    e: React.AnimationEvent<HTMLDivElement>
+  ) => {
+    try {
+      closeSectionMessage && closeSectionMessage(e);
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
+    }
+  };
+
+  const interceptiononClick = (e: React.MouseEvent) => {
+    try {
+      onClick && onClick(e);
+    } catch (error) {
+      if (error instanceof Error) {
+        throw new Error(error.message);
+      } else {
+        throw new Error("An unknown error occurred");
+      }
+    }
+  };
 
   return (
     <StyledSectionMessage
@@ -70,7 +98,7 @@ export const SectionMessage = (props: ISectionMessageProps) => {
         <Stack alignItems={isMessageResponsive ? "center" : undefined}>
           <Icon
             size="16px"
-            onClick={closeSectionMessage}
+            onClick={interceptiononClick}
             appearance={appearance}
             icon={<MdClear />}
           />
@@ -81,9 +109,12 @@ export const SectionMessage = (props: ISectionMessageProps) => {
           paused={isPaused}
           appearance={appearance}
           duration={duration}
-          onCountdown={closeSectionMessage}
+          onCountdown={interceptioncloseSectionMessage}
         />
       )}
     </StyledSectionMessage>
   );
 };
+
+export { SectionMessage };
+export type { ISectionMessageProps };

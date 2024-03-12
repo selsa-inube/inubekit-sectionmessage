@@ -16,9 +16,7 @@ const story = {
   },
 };
 
-export const Default = (args: ISectionMessageProps) => (
-  <SectionMessage {...args} />
-);
+const Default = (args: ISectionMessageProps) => <SectionMessage {...args} />;
 const closeSectionMessage = () => {
   action("SectionMessage closed")();
 };
@@ -34,7 +32,7 @@ const theme = {
   ...presente,
 };
 
-export const Themed = (args: ISectionMessageProps) => (
+const Themed = (args: ISectionMessageProps) => (
   <ThemeProvider theme={theme}>
     <SectionMessage {...args} />
   </ThemeProvider>
@@ -45,3 +43,4 @@ Themed.args = {
 };
 
 export default story;
+export { Default, Themed };
