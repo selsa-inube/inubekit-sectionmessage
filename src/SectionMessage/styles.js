@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { inube } from "@inubekit/foundations";
 
-export const StyledSectionMessage = styled.div`
+const StyledSectionMessage = styled.div`
   background-color: ${({ theme, $appearance }) => {
     return (
       theme?.color?.surface?.[$appearance]?.clear ||
@@ -18,3 +18,5 @@ export const StyledSectionMessage = styled.div`
   overflow: hidden;
   overflow-wrap: anywhere;
 `;
+
+export { StyledSectionMessage };
