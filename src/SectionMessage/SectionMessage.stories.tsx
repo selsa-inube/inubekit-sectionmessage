@@ -5,7 +5,7 @@ import { presente } from "@inubekit/foundations";
 import { action } from "@storybook/addon-actions";
 
 import { props, parameters } from "./props";
-import { ISectionMessageProps, SectionMessage } from ".";
+import { ISectionMessage, SectionMessage } from ".";
 
 const story = {
   title: "feedback/SectionMessage",
@@ -16,9 +16,7 @@ const story = {
   },
 };
 
-export const Default = (args: ISectionMessageProps) => (
-  <SectionMessage {...args} />
-);
+const Default = (args: ISectionMessage) => <SectionMessage {...args} />;
 const closeSectionMessage = () => {
   action("SectionMessage closed")();
 };
@@ -34,7 +32,7 @@ const theme = {
   ...presente,
 };
 
-export const Themed = (args: ISectionMessageProps) => (
+const Themed = (args: ISectionMessage) => (
   <ThemeProvider theme={theme}>
     <SectionMessage {...args} />
   </ThemeProvider>
@@ -44,4 +42,5 @@ Themed.args = {
   ...Default.args,
 };
 
+export { Default, Themed };
 export default story;
