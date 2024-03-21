@@ -8,14 +8,14 @@ import { Text } from "@inubekit/text";
 import { CountdownBar } from "@inubekit/countdownbar";
 import { Icon } from "@inubekit/icon";
 
-import { Appearance } from "./props";
+import { ISectionMessageAppearance } from "./props";
 import { StyledSectionMessage } from "./styles";
 
 interface ISectionMessage {
   icon: JSX.Element;
   title: string;
   description: string;
-  appearance: Appearance;
+  appearance: ISectionMessageAppearance;
   duration: number;
   closeSectionMessage: () => void;
   isMessageResponsive: boolean;
