@@ -1,14 +1,9 @@
 import styled from "styled-components";
-
 import { inube } from "@inubekit/foundations";
 
 const StyledSectionMessage = styled.div`
-  background-color: ${({ theme, $appearance }) => {
-    return (
-      theme?.color?.surface?.[$appearance]?.clear ||
-      inube.color.surface[$appearance].clear
-    );
-  }};
+  background-color: ${({ $appearance }) =>
+    inube.sectionMessage[$appearance].background.color};
   width: ${($isMessageResponsive) => ($isMessageResponsive ? "auto" : "400px")};
   height: auto;
   border-radius: 4px;
