@@ -26,7 +26,7 @@ const SectionMessage = (props: ISectionMessage) => {
     icon,
     title,
     description,
-    appearance = "primary",
+    appearance,
     duration,
     closeSectionMessage,
   } = props;
