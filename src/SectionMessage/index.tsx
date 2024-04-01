@@ -10,6 +10,7 @@ import { Icon } from "@inubekit/icon";
 
 import { Appearance } from "./props";
 import { StyledSectionMessage } from "./styles";
+import { inube } from "@inubekit/foundations";
 
 interface ISectionMessage {
   icon: JSX.Element;
@@ -55,7 +56,7 @@ const SectionMessage = (props: ISectionMessage) => {
       onMouseLeave={() => setIsPaused(false)}
       $isMessageResponsive={isMessageResponsive}
     >
-      <Stack justifyContent="space-between" padding="s200">
+      <Stack justifyContent="space-between" padding="16px">
         <Stack
           gap="16px"
           alignItems={isMessageResponsive ? "center" : undefined}
@@ -64,7 +65,10 @@ const SectionMessage = (props: ISectionMessage) => {
             <Icon
               size="24px"
               spacing="wide"
-              appearance={appearance}
+              appearance={
+                inube.sectionMessage[appearance].countdownbar
+                  .appearance as keyof typeof inube.sectionMessage
+              }
               icon={icon}
             />
             <Stack direction="column" gap="6px">
@@ -83,7 +87,7 @@ const SectionMessage = (props: ISectionMessage) => {
           <Icon
             size="16px"
             onClick={interceptionCloseSectionMessage}
-            appearance={appearance}
+            appearance={"dark"}
             icon={<MdClear />}
           />
         </Stack>
@@ -91,7 +95,10 @@ const SectionMessage = (props: ISectionMessage) => {
       {duration && (
         <CountdownBar
           paused={isPaused}
-          appearance={appearance}
+          appearance={
+            inube.sectionMessage[appearance].countdownbar
+              .appearance as keyof typeof inube.sectionMessage
+          }
           duration={duration}
           onCountdown={interceptionCloseSectionMessage}
         />
