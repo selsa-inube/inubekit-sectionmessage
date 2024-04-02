@@ -7,7 +7,7 @@ import { Stack } from "@inubekit/stack";
 import { Text } from "@inubekit/text";
 import { CountdownBar } from "@inubekit/countdownbar";
 import { Icon } from "@inubekit/icon";
-
+import { inube } from "@inubekit/foundations";
 import { Appearance } from "./props";
 import { StyledSectionMessage } from "./styles";
 
@@ -64,7 +64,7 @@ const SectionMessage = (props: ISectionMessage) => {
             <Icon
               size="24px"
               spacing="wide"
-              appearance={appearance}
+              appearance={appearance as keyof typeof inube.text}
               icon={icon}
             />
             <Stack direction="column" gap="6px">
@@ -83,7 +83,7 @@ const SectionMessage = (props: ISectionMessage) => {
           <Icon
             size="16px"
             onClick={interceptionCloseSectionMessage}
-            appearance={appearance}
+            appearance={appearance as keyof typeof inube.text}
             icon={<MdClear />}
           />
         </Stack>

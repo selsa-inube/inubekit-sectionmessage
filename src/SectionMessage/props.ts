@@ -1,5 +1,3 @@
-import { inube } from "@inubekit/foundations";
-
 const appearances = [
   "primary",
   "error",
@@ -38,7 +36,7 @@ const props = {
       "The description text of the section message. If the description is too long, it will be truncated to the MAX_DESCRIPTION_LENGTH.",
   },
   appearance: {
-    options: Object.keys(inube.color.surface),
+    options: appearances,
     control: { type: "select" },
     description:
       "The appearance style of the section message and related components.",
