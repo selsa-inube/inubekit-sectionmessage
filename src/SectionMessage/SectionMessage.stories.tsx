@@ -1,7 +1,4 @@
-import { ThemeProvider } from "styled-components";
 import { MdWarning } from "react-icons/md";
-
-import { presente } from "@inubekit/foundations";
 import { action } from "@storybook/addon-actions";
 
 import { props, parameters } from "./props";
@@ -28,19 +25,5 @@ Default.args = {
   closeSectionMessage: closeSectionMessage,
 };
 
-const theme = {
-  ...presente,
-};
-
-const Themed = (args: ISectionMessage) => (
-  <ThemeProvider theme={theme}>
-    <SectionMessage {...args} />
-  </ThemeProvider>
-);
-
-Themed.args = {
-  ...Default.args,
-};
-
-export { Default, Themed };
+export { Default };
 export default story;
