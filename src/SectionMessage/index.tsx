@@ -1,7 +1,7 @@
 import { useState } from "react";
-
 import { MdClear } from "react-icons/md";
-
+import { useContext } from "react";
+import { ThemeContext } from "styled-components";
 import { useMediaQuery } from "@inubekit/hooks";
 import { Stack } from "@inubekit/stack";
 import { Text } from "@inubekit/text";
@@ -31,11 +31,31 @@ const SectionMessage = (props: ISectionMessage) => {
     duration,
     closeSectionMessage,
   } = props;
-
+  const theme: typeof inube = useContext(ThemeContext);
   const [isPaused, setIsPaused] = useState(false);
   const isMessageResponsive = useMediaQuery("(max-width: 565px)");
 
   const newDescription = description.substring(0, 240);
+
+  const iconAppearance = (
+    appearance: ISectionMessageAppearance,
+  ): keyof typeof inube.icon => {
+    return (
+      (theme?.sectionMessage?.[appearance]?.icon
+        .appearance as keyof typeof inube.icon) ||
+      inube.sectionMessage[appearance]?.icon.appearance
+    );
+  };
+
+  const countdownBarAppearance = (
+    appearance: ISectionMessageAppearance,
+  ): keyof typeof inube.countdownBar => {
+    return (
+      (theme?.sectionMessage?.[appearance]?.countdownbar
+        .appearance as keyof typeof inube.countdownBar) ||
+      inube.sectionMessage[appearance]?.countdownbar.appearance
+    );
+  };
 
   const interceptionCloseSectionMessage = () => {
     try {
@@ -61,10 +81,7 @@ const SectionMessage = (props: ISectionMessage) => {
           <Icon
             size="24px"
             spacing="wide"
-            appearance={
-              inube.sectionMessage[appearance].countdownbar
-                .appearance as keyof typeof inube.sectionMessage
-            }
+            appearance={iconAppearance(appearance)}
             icon={icon}
           />
           <Stack direction="column" gap="6px">
@@ -89,10 +106,7 @@ const SectionMessage = (props: ISectionMessage) => {
         <StyledCountdownBarContainer>
           <CountdownBar
             paused={isPaused}
-            appearance={
-              inube.sectionMessage[appearance].countdownbar
-                .appearance as keyof typeof inube.sectionMessage
-            }
+            appearance={countdownBarAppearance(appearance)}
             duration={duration}
             onCountdown={interceptionCloseSectionMessage}
           />
