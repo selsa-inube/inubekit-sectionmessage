@@ -7,7 +7,7 @@
 #### Authors: 2
 
 - Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
-- Januar Asprilla  ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
+- Januar Asprilla ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
 
 ---
 

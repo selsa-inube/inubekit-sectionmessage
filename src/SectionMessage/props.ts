@@ -9,7 +9,7 @@ const appearances = [
   "dark",
 ] as const;
 
-type Appearance = (typeof appearances)[number];
+type ISectionMessageAppearance = (typeof appearances)[number];
 
 const parameters = {
   docs: {
@@ -56,4 +56,4 @@ const props = {
 };
 
 export { parameters, props };
-export type { Appearance };
+export type { ISectionMessageAppearance };
