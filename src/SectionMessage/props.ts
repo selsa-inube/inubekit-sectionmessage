@@ -1,9 +1,8 @@
 const appearances = [
   "primary",
-  "error",
+  "danger",
   "warning",
   "success",
-  "information",
   "help",
   "light",
   "gray",

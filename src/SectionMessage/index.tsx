@@ -9,7 +9,7 @@ import { CountdownBar } from "@inubekit/countdownbar";
 import { Icon } from "@inubekit/icon";
 import { inube } from "@inubekit/foundations";
 import { Appearance } from "./props";
-import { StyledSectionMessage } from "./styles";
+import { StyledSectionMessage, StyledCountdownBarContainer } from "./styles";
 
 interface ISectionMessage {
   icon: JSX.Element;
@@ -26,7 +26,7 @@ const SectionMessage = (props: ISectionMessage) => {
     icon,
     title,
     description,
-    appearance = "primary",
+    appearance,
     duration,
     closeSectionMessage,
   } = props;
@@ -55,46 +55,47 @@ const SectionMessage = (props: ISectionMessage) => {
       onMouseLeave={() => setIsPaused(false)}
       $isMessageResponsive={isMessageResponsive}
     >
-      <Stack justifyContent="space-between" padding="s200">
-        <Stack
-          gap="16px"
-          alignItems={isMessageResponsive ? "center" : undefined}
-        >
-          <Stack alignItems="center" gap="16px">
-            <Icon
-              size="24px"
-              spacing="wide"
-              appearance={appearance as keyof typeof inube.text}
-              icon={icon}
-            />
-            <Stack direction="column" gap="6px">
-              <Text size="large" textAlign="start">
-                {title}
+      <Stack justifyContent="space-between" padding="16px">
+        <Stack alignItems="center" gap="16px">
+          <Icon
+            size="24px"
+            spacing="wide"
+            appearance={
+              inube.sectionMessage[appearance].countdownbar
+                .appearance as keyof typeof inube.sectionMessage
+            }
+            icon={icon}
+          />
+          <Stack direction="column" gap="6px">
+            <Text size="large" textAlign="start">
+              {title}
+            </Text>
+            {!isMessageResponsive && (
+              <Text size="small" appearance="gray" textAlign="start">
+                {newDescription}
               </Text>
-              {!isMessageResponsive && (
-                <Text size="small" appearance="gray" textAlign="start">
-                  {newDescription}
-                </Text>
-              )}
-            </Stack>
+            )}
           </Stack>
         </Stack>
-        <Stack alignItems={isMessageResponsive ? "center" : undefined}>
-          <Icon
-            size="16px"
-            onClick={interceptionCloseSectionMessage}
-            appearance={appearance as keyof typeof inube.text}
-            icon={<MdClear />}
-          />
-        </Stack>
+        <Icon
+          size="16px"
+          onClick={interceptionCloseSectionMessage}
+          appearance="dark"
+          icon={<MdClear />}
+        />
       </Stack>
       {duration && (
-        <CountdownBar
-          paused={isPaused}
-          appearance={appearance}
-          duration={duration}
-          onCountdown={interceptionCloseSectionMessage}
-        />
+        <StyledCountdownBarContainer>
+          <CountdownBar
+            paused={isPaused}
+            appearance={
+              inube.sectionMessage[appearance].countdownbar
+                .appearance as keyof typeof inube.sectionMessage
+            }
+            duration={duration}
+            onCountdown={interceptionCloseSectionMessage}
+          />
+        </StyledCountdownBarContainer>
       )}
     </StyledSectionMessage>
   );

@@ -20,6 +20,7 @@ const closeSectionMessage = () => {
 Default.args = {
   title: "Title",
   description: "Description",
+  appearance: "primary",
   icon: <MdWarning />,
   duration: 10000,
   closeSectionMessage: closeSectionMessage,
