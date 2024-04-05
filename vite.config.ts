@@ -14,16 +14,16 @@ export default defineConfig({
     rollupOptions: {
       external: [
         "react",
-        "styled-components",
         "react-dom",
-        "react-icons",
+        "react-icons/md",
+        "styled-components",
         "react/jsx-runtime",
+        "@inubekit/countdownbar",
         "@inubekit/foundations",
         "@inubekit/hooks",
-        "@inubekit/text",
-        "@inubekit/stack",
         "@inubekit/icon",
-        "@inubekit/countdownbar",
+        "@inubekit/stack",
+        "@inubekit/text",
       ],
       output: {
         globals: {
