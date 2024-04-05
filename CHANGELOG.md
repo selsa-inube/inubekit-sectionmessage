@@ -1,3 +1,16 @@
+# v2.0.0 (Fri Apr 05 2024)
+
+#### 💥 Breaking Change
+
+- Refactor component to use new token structure and expandable mobile [#7](https://github.com/selsa-inube/inubekit-sectionmessage/pull/7) ([@JanuarAsprilla](https://github.com/JanuarAsprilla) [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 2
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+- Januar Asprilla  ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
+
+---
+
 # v1.1.0 (Wed Apr 03 2024)
 
 #### 🚀 Enhancement
