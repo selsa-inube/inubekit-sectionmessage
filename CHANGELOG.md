@@ -1,8 +1,43 @@
+# v2.0.0 (Fri Apr 05 2024)
+
+#### 💥 Breaking Change
+
+- Refactor component to use new token structure and expandable mobile [#7](https://github.com/selsa-inube/inubekit-sectionmessage/pull/7) ([@JanuarAsprilla](https://github.com/JanuarAsprilla) [@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 2
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+- Januar Asprilla ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
+
+---
+
+# v1.1.0 (Wed Apr 03 2024)
+
+#### 🚀 Enhancement
+
+- Implement try..catch in props of type function [#4](https://github.com/selsa-inube/inubekit-sectionmessage/pull/4) ([@cmarin001](https://github.com/cmarin001))
+
+#### 🐛 Bug Fix
+
+- Add auto publish [#8](https://github.com/selsa-inube/inubekit-sectionmessage/pull/8) ([@cmarin001](https://github.com/cmarin001))
+- Publish `SectionMessage` package NPM [#2](https://github.com/selsa-inube/inubekit-sectionmessage/pull/2) ([@Andresbl123](https://github.com/Andresbl123))
+
+#### 🔩 Dependency Updates
+
+- Update inubekit/sectionmessage to storybook v8 [#5](https://github.com/selsa-inube/inubekit-sectionmessage/pull/5) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 2
+
+- Andres ([@Andresbl123](https://github.com/Andresbl123))
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v0.0.2 (Tue Feb 13 2024)
 
 #### 🐛 Bug Fix
 
-- Implementation of  `<SectionMessage  />`component [#1](https://github.com/selsa-inube/inubekit-sectionmessage/pull/1) ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
+- Implementation of `<SectionMessage  />`component [#1](https://github.com/selsa-inube/inubekit-sectionmessage/pull/1) ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
 
 #### ⚠️ Pushed to `main`
 
@@ -13,7 +48,7 @@
 
 - Andres ([@Andresbl123](https://github.com/Andresbl123))
 - Andres Babativa (carlos3k11@gmail.com)
-- Januar Asprilla  ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
+- Januar Asprilla ([@JanuarAsprilla](https://github.com/JanuarAsprilla))
 
 ---
 
