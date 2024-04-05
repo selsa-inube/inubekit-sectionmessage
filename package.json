@@ -47,10 +47,10 @@
   },
   "dependencies": {
     "@inubekit/countdownbar": "^2.1.0",
-    "@inubekit/foundations": "^2.12.0",
+    "@inubekit/foundations": "^2.12.1",
     "@inubekit/hooks": "^1.1.0",
     "@inubekit/icon": "^1.1.0",
-    "@inubekit/stack": "^1.1.0",
+    "@inubekit/stack": "^2.1.1",
     "@inubekit/text": "^1.3.0"
   },
   "devDependencies": {
