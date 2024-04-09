@@ -1,3 +1,15 @@
+# v4.0.0 (Tue Apr 09 2024)
+
+#### 💥 Breaking Change
+
+- Refactor component (sectionMessage) so it uses theme from ThemeContext [#9](https://github.com/selsa-inube/inubekit-sectionmessage/pull/9) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v3.0.0 (Fri Apr 05 2024)
 
 #### 💥 Breaking Change
