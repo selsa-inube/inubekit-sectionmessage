@@ -5,7 +5,7 @@ import { ThemeContext } from "styled-components";
 import { useMediaQuery } from "@inubekit/hooks";
 import { Stack } from "@inubekit/stack";
 import { ITextAppearance, Text } from "@inubekit/text";
-import { CountdownBar } from "@inubekit/countdownbar";
+import { CountdownBar, ICountdownBarAppearance } from "@inubekit/countdownbar";
 import { IIconAppearance, Icon } from "@inubekit/icon";
 
 import { ISectionMessageAppearance } from "./props";
@@ -37,33 +37,23 @@ const SectionMessage = (props: ISectionMessage) => {
 
   const newDescription = description.substring(0, 240);
 
-  const iconAppearance = (
-    appearance: ISectionMessageAppearance,
-  ): keyof typeof inube.icon => {
-    return (
-      (theme?.sectionMessage?.[appearance]?.icon
-        .appearance as ISectionMessageAppearance) ||
-      inube.sectionMessage[appearance]?.icon.appearance
-    );
+  const iconAppearance = (appearance: ISectionMessageAppearance) => {
+    return (theme?.sectionMessage?.[appearance]?.icon.appearance ||
+      inube.sectionMessage[appearance]?.icon.appearance) as IIconAppearance;
   };
 
-  const countdownBarAppearance = (
-    appearance: ISectionMessageAppearance,
-  ): keyof typeof inube.countdownBar => {
-    return (
-      (theme?.sectionMessage?.[appearance]?.countdownbar
-        .appearance as ISectionMessageAppearance) ||
-      inube.sectionMessage[appearance]?.countdownbar.appearance
-    );
+  const countdownBarAppearance = (appearance: ISectionMessageAppearance) => {
+    return (theme?.sectionMessage?.[appearance]?.countdownbar.appearance ||
+      inube.sectionMessage[appearance]?.countdownbar
+        .appearance) as ICountdownBarAppearance;
   };
 
-  const textAppearance =
-    theme?.sectionMessage?.gray?.content.appearance ||
-    inube.sectionMessage.gray?.content.appearance;
+  const textAppearance = (theme?.sectionMessage?.gray?.content.appearance ||
+    inube.sectionMessage.gray?.content.appearance) as ITextAppearance;
 
-  const closeIconAppearance =
-    theme?.sectionMessage?.dark?.icon.appearance ||
-    inube.sectionMessage.dark?.icon.appearance;
+  const closeIconAppearance = (theme?.sectionMessage?.dark?.icon.appearance ||
+    inube.sectionMessage.dark?.icon.appearance) as IIconAppearance;
+
   const interceptionCloseSectionMessage = () => {
     try {
       closeSectionMessage && closeSectionMessage();
@@ -96,11 +86,7 @@ const SectionMessage = (props: ISectionMessage) => {
               {title}
             </Text>
             {!isMessageResponsive && (
-              <Text
-                size="small"
-                appearance={textAppearance as ITextAppearance}
-                textAlign="start"
-              >
+              <Text size="small" appearance={textAppearance} textAlign="start">
                 {newDescription}
               </Text>
             )}
@@ -109,7 +95,7 @@ const SectionMessage = (props: ISectionMessage) => {
         <Icon
           size="16px"
           onClick={interceptionCloseSectionMessage}
-          appearance={closeIconAppearance as IIconAppearance}
+          appearance={closeIconAppearance}
           icon={<MdClear />}
         />
       </Stack>
