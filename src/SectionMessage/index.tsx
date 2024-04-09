@@ -4,9 +4,9 @@ import { useContext } from "react";
 import { ThemeContext } from "styled-components";
 import { useMediaQuery } from "@inubekit/hooks";
 import { Stack } from "@inubekit/stack";
-import { Text } from "@inubekit/text";
+import { ITextAppearance, Text } from "@inubekit/text";
 import { CountdownBar } from "@inubekit/countdownbar";
-import { Icon } from "@inubekit/icon";
+import { IIconAppearance, Icon } from "@inubekit/icon";
 
 import { ISectionMessageAppearance } from "./props";
 import { inube } from "@inubekit/foundations";
@@ -42,7 +42,7 @@ const SectionMessage = (props: ISectionMessage) => {
   ): keyof typeof inube.icon => {
     return (
       (theme?.sectionMessage?.[appearance]?.icon
-        .appearance as keyof typeof inube.icon) ||
+        .appearance as ISectionMessageAppearance) ||
       inube.sectionMessage[appearance]?.icon.appearance
     );
   };
@@ -52,11 +52,18 @@ const SectionMessage = (props: ISectionMessage) => {
   ): keyof typeof inube.countdownBar => {
     return (
       (theme?.sectionMessage?.[appearance]?.countdownbar
-        .appearance as keyof typeof inube.countdownBar) ||
+        .appearance as ISectionMessageAppearance) ||
       inube.sectionMessage[appearance]?.countdownbar.appearance
     );
   };
 
+  const textAppearance =
+    theme?.sectionMessage?.gray?.content.appearance ||
+    inube.sectionMessage.gray?.content.appearance;
+
+  const closeIconAppearance =
+    theme?.sectionMessage?.dark?.icon.appearance ||
+    inube.sectionMessage.dark?.icon.appearance;
   const interceptionCloseSectionMessage = () => {
     try {
       closeSectionMessage && closeSectionMessage();
@@ -89,7 +96,11 @@ const SectionMessage = (props: ISectionMessage) => {
               {title}
             </Text>
             {!isMessageResponsive && (
-              <Text size="small" appearance="gray" textAlign="start">
+              <Text
+                size="small"
+                appearance={textAppearance as ITextAppearance}
+                textAlign="start"
+              >
                 {newDescription}
               </Text>
             )}
@@ -98,7 +109,7 @@ const SectionMessage = (props: ISectionMessage) => {
         <Icon
           size="16px"
           onClick={interceptionCloseSectionMessage}
-          appearance="dark"
+          appearance={closeIconAppearance as IIconAppearance}
           icon={<MdClear />}
         />
       </Stack>
