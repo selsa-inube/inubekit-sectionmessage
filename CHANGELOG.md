@@ -1,3 +1,15 @@
+# v4.2.0 (Tue Apr 30 2024)
+
+#### 🚀 Enhancement
+
+- Update workflow in order to avoid merges with failed builds [#11](https://github.com/selsa-inube/inubekit-sectionmessage/pull/11) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v4.1.0 (Tue Apr 09 2024)
 
 #### 🚀 Enhancement
