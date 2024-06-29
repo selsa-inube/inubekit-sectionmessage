@@ -46,12 +46,12 @@
     "styled-components": "^6.1.8"
   },
   "dependencies": {
-    "@inubekit/countdownbar": "^2.2.1",
-    "@inubekit/foundations": "^2.12.1",
-    "@inubekit/hooks": "^1.1.0",
-    "@inubekit/icon": "^1.5.1",
-    "@inubekit/stack": "^2.1.1",
-    "@inubekit/text": "^2.2.1"
+    "@inubekit/foundations": "^5.0.0",
+    "@inubekit/countdownbar": "^2.4.0",
+    "@inubekit/hooks": "^1.2.0",
+    "@inubekit/icon": "^1.8.0",
+    "@inubekit/stack": "^2.3.0",
+    "@inubekit/text": "^2.4.0"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.4",
