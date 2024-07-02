@@ -1,5 +1,5 @@
 {
-  "name": "@inubekit/sectionmessage",
+  "name": "@inubekit/flag",
   "homepage": "https://inubeds.vercel.app/",
   "author": "inube",
   "main": "dist/index.es.js",
@@ -10,7 +10,7 @@
   ],
   "description": "",
   "private": false,
-  "version": "5.0.0",
+  "version": "4.3.0",
   "type": "module",
   "exports": {
     ".": {
@@ -86,7 +86,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/selsa-inube/inubekit-sectionmessage.git"
+    "url": "git+https://github.com/selsa-inube/inubekit-flag.git"
   },
   "auto": {
     "plugins": [
