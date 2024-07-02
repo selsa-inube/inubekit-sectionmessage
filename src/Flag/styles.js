@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { inube } from "@inubekit/foundations";
 
-const StyledSectionMessage = styled.div`
+const StyledFlag = styled.div`
   background-color: ${({ theme, $appearance }) =>
     theme?.sectionMessage?.[$appearance]?.background?.color ||
     inube.sectionMessage[$appearance].background.color};
@@ -23,4 +23,10 @@ const StyledCountdownBarContainer = styled.div`
   }
 `;
 
-export { StyledSectionMessage, StyledCountdownBarContainer };
+const StyledCloseIconContainer = styled.div`
+  & > figure {
+    cursor: pointer;
+  }
+`;
+
+export { StyledFlag, StyledCountdownBarContainer, StyledCloseIconContainer };

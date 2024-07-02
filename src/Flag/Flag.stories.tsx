@@ -2,20 +2,20 @@ import { MdWarning } from "react-icons/md";
 import { action } from "@storybook/addon-actions";
 
 import { props, parameters } from "./props";
-import { ISectionMessage, SectionMessage } from ".";
+import { IFlag, Flag } from ".";
 
 const story = {
-  title: "feedback/SectionMessage",
-  components: [SectionMessage],
+  title: "feedback/Flag",
+  components: [Flag],
   parameters,
   argTypes: {
     ...props,
   },
 };
 
-const Default = (args: ISectionMessage) => <SectionMessage {...args} />;
-const closeSectionMessage = () => {
-  action("SectionMessage closed")();
+const Default = (args: IFlag) => <Flag {...args} />;
+const closeFlag = () => {
+  action("Flag closed")();
 };
 Default.args = {
   title: "Title",
@@ -23,7 +23,7 @@ Default.args = {
   appearance: "primary",
   icon: <MdWarning />,
   duration: 10000,
-  closeSectionMessage: closeSectionMessage,
+  closeFlag: closeFlag,
 };
 
 export { Default };
