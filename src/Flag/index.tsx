@@ -8,41 +8,38 @@ import { ITextAppearance, Text } from "@inubekit/text";
 import { CountdownBar, ICountdownBarAppearance } from "@inubekit/countdownbar";
 import { IIconAppearance, Icon } from "@inubekit/icon";
 
-import { ISectionMessageAppearance } from "./props";
+import { IFlagAppearance } from "./props";
 import { inube } from "@inubekit/foundations";
-import { StyledSectionMessage, StyledCountdownBarContainer } from "./styles";
+import {
+  StyledFlag,
+  StyledCountdownBarContainer,
+  StyledCloseIconContainer,
+} from "./styles";
 
-interface ISectionMessage {
+interface IFlag {
   icon: JSX.Element;
   title: string;
   description: string;
-  appearance: ISectionMessageAppearance;
+  appearance: IFlagAppearance;
   duration: number;
-  closeSectionMessage: () => void;
+  closeFlag: () => void;
   isMessageResponsive: boolean;
 }
 
-const SectionMessage = (props: ISectionMessage) => {
-  const {
-    icon,
-    title,
-    description,
-    appearance,
-    duration,
-    closeSectionMessage,
-  } = props;
+const Flag = (props: IFlag) => {
+  const { icon, title, description, appearance, duration, closeFlag } = props;
   const theme: typeof inube = useContext(ThemeContext);
   const [isPaused, setIsPaused] = useState(false);
   const isMessageResponsive = useMediaQuery("(max-width: 565px)");
 
   const newDescription = description.substring(0, 240);
 
-  const iconAppearance = (appearance: ISectionMessageAppearance) => {
+  const iconAppearance = (appearance: IFlagAppearance) => {
     return (theme?.sectionMessage?.[appearance]?.icon.appearance ||
       inube.sectionMessage[appearance]?.icon.appearance) as IIconAppearance;
   };
 
-  const countdownBarAppearance = (appearance: ISectionMessageAppearance) => {
+  const countdownBarAppearance = (appearance: IFlagAppearance) => {
     return (theme?.sectionMessage?.[appearance]?.countdownbar.appearance ||
       inube.sectionMessage[appearance]?.countdownbar
         .appearance) as ICountdownBarAppearance;
@@ -54,9 +51,9 @@ const SectionMessage = (props: ISectionMessage) => {
   const closeIconAppearance = (theme?.sectionMessage?.dark?.icon.appearance ||
     inube.sectionMessage.dark?.icon.appearance) as IIconAppearance;
 
-  const interceptionCloseSectionMessage = () => {
+  const interceptionCloseFlag = () => {
     try {
-      closeSectionMessage && closeSectionMessage();
+      closeFlag && closeFlag();
     } catch (error) {
       if (error instanceof Error) {
         throw new Error(error.message);
@@ -67,7 +64,7 @@ const SectionMessage = (props: ISectionMessage) => {
   };
 
   return (
-    <StyledSectionMessage
+    <StyledFlag
       $appearance={appearance}
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -92,12 +89,14 @@ const SectionMessage = (props: ISectionMessage) => {
             )}
           </Stack>
         </Stack>
-        <Icon
-          size="16px"
-          onClick={interceptionCloseSectionMessage}
-          appearance={closeIconAppearance}
-          icon={<MdClear />}
-        />
+        <StyledCloseIconContainer>
+          <Icon
+            size="16px"
+            onClick={interceptionCloseFlag}
+            appearance={closeIconAppearance}
+            icon={<MdClear />}
+          />
+        </StyledCloseIconContainer>
       </Stack>
       {duration && (
         <StyledCountdownBarContainer>
@@ -105,13 +104,13 @@ const SectionMessage = (props: ISectionMessage) => {
             paused={isPaused}
             appearance={countdownBarAppearance(appearance)}
             duration={duration}
-            onCountdown={interceptionCloseSectionMessage}
+            onCountdown={interceptionCloseFlag}
           />
         </StyledCountdownBarContainer>
       )}
-    </StyledSectionMessage>
+    </StyledFlag>
   );
 };
 
-export { SectionMessage };
-export type { ISectionMessage };
+export { Flag };
+export type { IFlag };
