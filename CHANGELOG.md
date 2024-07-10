@@ -1,3 +1,17 @@
+# v5.1.0 (Wed Jul 10 2024)
+
+#### 🚀 Enhancement
+
+- Update foundations dependencies [#16](https://github.com/selsa-inube/inubekit-flag/pull/16) ([@cmarin001](https://github.com/cmarin001))
+- Update foundations dependencies [#15](https://github.com/selsa-inube/inubekit-flag/pull/15) ([@cmarin001](https://github.com/cmarin001))
+- Update Auto-Config to Rename Package [#14](https://github.com/selsa-inube/inubekit-flag/pull/14) ([@cmarin001](https://github.com/cmarin001))
+
+#### Authors: 1
+
+- Cesar Marin Alfonso ([@cmarin001](https://github.com/cmarin001))
+
+---
+
 # v5.1.0 (Tue Jul 09 2024)
 
 #### 🚀 Enhancement
