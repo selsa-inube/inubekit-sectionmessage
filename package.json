@@ -50,7 +50,7 @@
     "@inubekit/countdownbar": "^2.5.0",
     "@inubekit/hooks": "^1.2.0",
     "@inubekit/icon": "^1.9.0",
-    "@inubekit/stack": "^2.3.0",
+    "@inubekit/stack": "^2.4.0",
     "@inubekit/text": "^2.6.0"
   },
   "devDependencies": {
