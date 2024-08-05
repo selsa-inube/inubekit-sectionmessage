@@ -17,13 +17,14 @@ import {
 } from "./styles";
 
 interface IFlag {
+  id?: string;
   icon: JSX.Element;
   title: string;
   description: string;
   appearance: IFlagAppearance;
   duration: number;
-  closeFlag: () => void;
-  isMessageResponsive: boolean;
+  closeFlag?: () => void;
+  isMessageResponsive?: boolean;
 }
 
 const Flag = (props: IFlag) => {
@@ -74,16 +75,15 @@ const Flag = (props: IFlag) => {
         <Stack alignItems="center" gap="16px">
           <Icon
             size="24px"
-            spacing="wide"
             appearance={iconAppearance(appearance)}
             icon={icon}
           />
           <Stack direction="column" gap="6px">
-            <Text size="large" textAlign="start">
+            <Text type="label" size="large" textAlign="start" weight="bold">
               {title}
             </Text>
             {!isMessageResponsive && (
-              <Text size="small" appearance={textAppearance} textAlign="start">
+              <Text size="medium" appearance={textAppearance} textAlign="start">
                 {newDescription}
               </Text>
             )}
